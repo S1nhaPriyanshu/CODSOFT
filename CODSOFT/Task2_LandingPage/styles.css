@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&display=swap');
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #e6d8ad;
+  background: #2e2b25;
+  margin: 0;
+}
+
+header {
+  background: #3b382f;
+  color: #e6d8ad;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  box-shadow: 0 2px 8px rgba(44,40,36,0.15);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+nav a {
+  color: #e6d8ad;
+  margin: 0 14px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: #9c744f;
+}
+
+.hero, .engines-section, .cta, .features-section, .gallery-section {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+.hero, .engines-section, .cta  { animation: fadeIn 1.2s ease 0.3s forwards; }
+.features-section, .gallery-section { animation: slideUp 1.2s ease 0.6s forwards;}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1;}
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+
+.columns {
+  display: flex;
+  gap: 28px;
+  margin: 38px 0;
+  justify-content: center;
+}
+.column {
+  background: #3b382f;
+  color: #e6d8ad;
+  padding: 28px 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(44,40,36,0.08);
+  flex: 1;
+  min-width: 210px;
+  border-left: 5px solid #9c744f;
+}
+.column h3 {
+  color: #9c744f;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
+}
+
+table {
+  width: 100%;
+  background: #3b382f;
+  border-collapse: collapse;
+  margin: 22px 0 38px 0;
+  color: #e6d8ad;
+}
+th, td {
+  border: 1px solid #9c744f;
+  padding: 14px 12px;
+  text-align: left;
+}
+th {
+  background: #2e2b25;
+  color: #e6d8ad;
+  letter-spacing: 1px;
+}
+
+.image-tabs {
+  max-width: 600px;
+  margin: 30px auto 0 auto;
+}
+.image-tabs input[type="radio"] {
+  display: none;
+}
+.image-tabs .tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.image-tabs label {
+  background: #3b382f;
+  color: #e6d8ad;
+  padding: 9px 22px;
+  margin: 0 5px;
+  border-radius: 5px 5px 0 0;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+.image-tabs input#front-side:checked ~ .tabs label[for="front-side"],
+.image-tabs input#hood:checked ~ .tabs label[for="hood"],
+.image-tabs input#side:checked ~ .tabs label[for="side"],
+.image-tabs input#interior:checked ~ .tabs label[for="interior"],
+.image-tabs input#wheel:checked ~ .tabs label[for="wheel"] {
+  color: #9c744f;
+  border-bottom: 3px solid #d5bc93;
+}
+
+.images {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+}
+.images img {
+  position: absolute;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+  margin: auto;
+  width: 88%;
+  max-width: 450px;
+  border-radius: 12px;
+  opacity: 0;
+  box-shadow: 0 8px 32px rgba(90,70,30,0.35);
+  transition: opacity 0.7s;
+  border: 2px solid #9c744f;
+  z-index: 1;
+  pointer-events: none;
+}
+input#front-side:checked ~ .images .front-side,
+input#hood:checked ~ .images .hood,
+input#side:checked ~ .images .side,
+input#interior:checked ~ .images .interior,
+input#wheel:checked ~ .images .wheel {
+  opacity: 1;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.cta {
+  background: #2e2b25;
+  color: #e6d8ad;
+  text-align: center;
+  padding: 44px 16px 34px 16px;
+  border-top: 1px solid #554936;
+  margin-top: 16px;
+}
+.cta input[type="email"] {
+  padding: 10px;
+  border: 1.5px solid #9c744f;
+  border-radius: 5px;
+  background: #3b382f;
+  color: #e6d8ad;
+  outline: none;
+  margin-right: 10px;
+  font-size: 1em;
+}
+.cta button {
+  background: #9c744f;
+  color: #2e2b25;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 5px;
+  font-size: 1.05em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cta button:hover {
+  background: #d5bc93;
+  color: #3b382f;
+}
+
+footer {
+  background: #3b382f;
+  color: #e6d8ad;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 -2px 8px rgba(44,40,36,0.12);
+  margin-top: 30px;
+  border-top: 2px solid #9c744f;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .images img {
+    width: 98vw;
+    max-width: 320px;
+  }
+}
